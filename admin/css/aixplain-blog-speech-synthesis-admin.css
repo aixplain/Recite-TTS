@@ -1,0 +1,31 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.aixplain-bss .content{
+    display: inline-grid;;
+    grid-template-columns: auto auto;
+    grid-column-gap: 50px;
+    width:100%;
+    max-width: 1200px;
+}
+
+.aixplain-bss form label{
+    min-width: 50px;
+    display: block;
+}
+.aixplain-bss form input, form select,form textarea{
+    min-width: 100%;
+    min-height:30px;
+}
+.aixplain-bss form > div{
+    margin-bottom: 20px;
+}
+.aixplain-bss .updated.saved-message, .error-message.error{
+    padding: 10px;
+    margin-left: 0px;
+}
+.aixplain-bss .shortcode{
+    cursor: pointer;
+}
