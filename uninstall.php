@@ -22,7 +22,7 @@
  * @link       https://aixplain.com/
  * @since      1.0.0
  *
- * @package    Aixplain_Blog_Speech_Synthesis
+ * @package    AiXplain_Recite_TTS
  */
 
 // If uninstall not called from WordPress, then exit.

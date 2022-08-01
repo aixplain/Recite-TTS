@@ -9,8 +9,8 @@
  * @link       https://aixplain.com/
  * @since      1.0.0
  *
- * @package    Aixplain_Blog_Speech_Synthesis
- * @subpackage Aixplain_Blog_Speech_Synthesis/includes
+ * @package    AiXplain_Recite_TTS
+ * @subpackage    AiXplain_Recite_TTS/includes
  */
 
 /**
@@ -20,11 +20,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Aixplain_Blog_Speech_Synthesis
- * @subpackage Aixplain_Blog_Speech_Synthesis/includes
+ * @package    AiXplain_Recite_TTS
+ * @subpackage    AiXplain_Recite_TTS/includes
  * @author     aiXplain <anas.bakro@aixplain.com>
  */
-class Aixplain_Blog_Speech_Synthesis_i18n {
+class AiXplain_Recite_TTS_i18n {
 
 
 	/**
@@ -35,7 +35,7 @@ class Aixplain_Blog_Speech_Synthesis_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'aixplain-blog-speech-synthesis',
+			'aixplain-recite-tts',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

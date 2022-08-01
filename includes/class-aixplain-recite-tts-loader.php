@@ -6,8 +6,8 @@
  * @link       https://aixplain.com/
  * @since      1.0.0
  *
- * @package    Aixplain_Blog_Speech_Synthesis
- * @subpackage Aixplain_Blog_Speech_Synthesis/includes
+ * @package    AiXplain_Recite_TTS
+ * @subpackage    AiXplain_Recite_TTS/includes
  */
 
 /**
@@ -17,11 +17,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Aixplain_Blog_Speech_Synthesis
- * @subpackage Aixplain_Blog_Speech_Synthesis/includes
+ * @package    AiXplain_Recite_TTS
+ * @subpackage    AiXplain_Recite_TTS/includes
  * @author     aiXplain <anas.bakro@aixplain.com>
  */
-class Aixplain_Blog_Speech_Synthesis_Loader {
+class AiXplain_Recite_TTS_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

@@ -6,8 +6,8 @@
  * @link       https://aixplain.com/
  * @since      1.0.0
  *
- * @package    Aixplain_Blog_Speech_Synthesis
- * @subpackage Aixplain_Blog_Speech_Synthesis/includes
+ * @package    AiXplain_Recite_TTS
+ * @subpackage    AiXplain_Recite_TTS/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
- * @package    Aixplain_Blog_Speech_Synthesis
- * @subpackage Aixplain_Blog_Speech_Synthesis/includes
+ * @package    AiXplain_Recite_TTS
+ * @subpackage    AiXplain_Recite_TTS/includes
  * @author     aiXplain <anas.bakro@aixplain.com>
  */
-class Aixplain_Blog_Speech_Synthesis_Deactivator {
+class AiXplain_Recite_TTS_Deactivator {
 
 	/**
 	 * Short Description. (use period)

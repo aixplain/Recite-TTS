@@ -6,8 +6,8 @@
  * @link       https://aixplain.com/
  * @since      1.0.0
  *
- * @package    Aixplain_Blog_Speech_Synthesis
- * @subpackage Aixplain_Blog_Speech_Synthesis/public
+ * @package    AiXplain_Recite_TTS
+ * @subpackage    AiXplain_Recite_TTS/public
  */
 
 /**
@@ -16,11 +16,11 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    Aixplain_Blog_Speech_Synthesis
- * @subpackage Aixplain_Blog_Speech_Synthesis/public
+ * @package    AiXplain_Recite_TTS
+ * @subpackage    AiXplain_Recite_TTS/public
  * @author     aiXplain <anas.bakro@aixplain.com>
  */
-class Aixplain_Blog_Speech_Synthesis_Public {
+class AiXplain_Blog_Speech_Synthesis_Public {
 
 	/**
 	 * The ID of this plugin.
@@ -52,7 +52,7 @@ class Aixplain_Blog_Speech_Synthesis_Public {
 
 		$this->plugin_name = $plugin_name;
 		$this->version     = $version;
-		$this->processor   = new Aixplain_Blog_Speech_Synthesis_Processor();
+		$this->processor   = new AiXplain_Recite_TTS_Core();
 
 	}
 
@@ -67,15 +67,15 @@ class Aixplain_Blog_Speech_Synthesis_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Aixplain_Blog_Speech_Synthesis_Loader as all of the hooks are defined
+		 * defined in AiXplain_Blog_Speech_Synthesis_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Aixplain_Blog_Speech_Synthesis_Loader will then create the relationship
+		 * The AiXplain_Blog_Speech_Synthesis_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/aixplain-blog-speech-synthesis-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/aixplain-recite-tts-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -90,17 +90,17 @@ class Aixplain_Blog_Speech_Synthesis_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Aixplain_Blog_Speech_Synthesis_Loader as all of the hooks are defined
+		 * defined in AiXplain_Blog_Speech_Synthesis_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Aixplain_Blog_Speech_Synthesis_Loader will then create the relationship
+		 * The AiXplain_Blog_Speech_Synthesis_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/aixplain-blog-speech-synthesis-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/aixplain-recite-tts-public.js', array( 'jquery' ), $this->version, false );
 
-		add_shortcode( 'aixplain-blog-speech-synthesis', [ $this, 'register_shortcode' ] );
+		add_shortcode( 'aixplain-recite-tts', [ $this, 'register_shortcode' ] );
 	}
 
 
@@ -128,7 +128,7 @@ class Aixplain_Blog_Speech_Synthesis_Public {
 	public function register_shortcode( $atts ) {
 		$atts = shortcode_atts( array(
 			'element' => 'audio-url',
-		), $atts, 'aixplain-blog-speech-synthesis' );
+		), $atts, 'aixplain-recite-tts' );
 
 		//Get API Data by short code type attribute
 		//Render home page and listing page items

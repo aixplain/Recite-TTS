@@ -36,17 +36,12 @@ function aixplain_bss_add_quote( &$value, $key ) {
 }
 
 
-function aixplain_bss_get_next_post_has_no_meta( $meta, $offset = 0 ) {
+function aixplain_bss_get_next_post( $meta, $offset = 0 ) {
 	$args = array(
 		'posts_per_page' => 1,
 		'post_status'    => 'publish',
 		'offset'         => $offset,
-		'meta_query'     => array(
-			array(
-				'key'     => $meta,
-				'compare' => 'NOT EXISTS' // this should work...
-			),
-		)
+		'meta_query'     => $meta
 	);
 
 	return query_posts( $args );
@@ -56,6 +51,9 @@ function aixplain_bss_get_next_post_has_meta( $meta, $value ) {
 	$args = array(
 		'posts_per_page' => 1,
 		'post_status'    => 'publish',
+		'orderby' => 'post_date',
+		'order' => 'DESC',
+		'post_type' => 'post',
 		'meta_query'     => array(
 			array(
 				'key'   => $meta,
@@ -69,7 +67,7 @@ function aixplain_bss_get_next_post_has_meta( $meta, $value ) {
 }
 
 
-function aixplain_bss_count_posts_has_meta( $meta ) {
+function aixplain_bss_count_posts_has_meta( $meta,$value='' ) {
 	global $wpdb;
 	$sql = "SELECT count({$wpdb->posts}.ID) as count 
         FROM {$wpdb->posts} 
@@ -79,6 +77,8 @@ function aixplain_bss_count_posts_has_meta( $meta ) {
         AND ({$wpdb->posts}.post_status = 'publish')
         AND ({$wpdb->postmeta}.meta_key = '{$meta}')
          ";
+	if($value)
+		$sql.=" AND ({$wpdb->postmeta}.meta_value = '{$value}')";
 
 	//$prepared_sql = $wpdb->prepare( $sql );
 	$res = $wpdb->get_results( $sql );

@@ -8,10 +8,10 @@
  * @link       https://aixplain.com/
  * @since      1.0.0
  *
- * @package    Aixplain_Blog_Speech_Synthesis
- * @subpackage Aixplain_Blog_Speech_Synthesis/admin/partials
+ * @package    AiXplain_Recite_TTS
+ * @subpackage    AiXplain_Recite_TTS/admin/partials
  */
-global $totalPosts, $totalSynthesisedPosts;
+global $totalPosts, $totalSynthesisedPosts, $toBeProcessed, $notPossibleToProcess, $jobAlreadyRunning, $postsHasApiError, $stopFlag;
 
 
 if ( ! current_user_can( 'manage_options' ) ) {
@@ -28,8 +28,11 @@ if ( isset( $_REQUEST['aixplain_bss_api_key'] ) ) {
 
 <div class="aixplain-bss ">
     <h1>
-        aiXplain Blog Speech Synthesis Settings
+        <a href="https://aixplain.com" target="_blank">aiXplain</a> Recite TTS Settings
     </h1>
+    <a href="https://aixplain.com" target="_blank" class="aixplain-bss-brand">
+        <img src="<?=site_url()?>/wp-content/plugins/aixplain-recite-tts/admin/images/icon-large.png">
+    </a>
     <div><small>Currently it supports posts only!</small></div>
 
     <div class="content">
@@ -88,24 +91,43 @@ if ( isset( $_REQUEST['aixplain_bss_api_key'] ) ) {
             <h2>Statistics</h2>
             <ul>
                 <li>
-                    <span id="aixplain-bss-total-blogs"><?= $totalPosts ?></span> Total Blogs
+                    <span id="aixplain-bss-total-blogs"><?= $totalPosts ?></span> Total Posts
+                </li>
+                <li>
+                    <span id="aixplain-bss-not-possible-blogs"><?= $notPossibleToProcess ?></span> Total Posts - cannot be synthesized
+
+                </li>
+                <li>
+                    <span id="aixplain-bss-blogs-has-api-error"><?= $postsHasApiError ?></span> Total Posts - has api error
+
                 </li>
                 <li>
                     <span id="aixplain-bss-synthesised-blogs"><?= $totalSynthesisedPosts ?></span> Total Synthesised
-                    Blogs
+                    Posts
                 </li>
+
+
+
                 <li>
-                    <span id="aixplain-bss-un-synthesised-blogs"><?= $totalPosts - $totalSynthesisedPosts ?></span>
-                    Total Un-synthesised Blogs
+                    <span id="aixplain-bss-un-synthesised-blogs"><?= $toBeProcessed ?></span>
+                    Total Un-synthesised Posts
                     <br/><br/>
-					<?php if ( ( $totalPosts - $totalSynthesisedPosts ) > 0 ): ?>
-                        <button id="aixplain-bss-process-action">Process <?= $totalPosts - $totalSynthesisedPosts ?>
+                    <?php if ( $toBeProcessed > 0 || $stopFlag ): ?>
+                        <button id="aixplain-bss-process-action" data-trigger-onload="<?=$stopFlag || $jobAlreadyRunning?>" data-is-stop="<?=$stopFlag?>">Process <?= $toBeProcessed ?>
                             Post(s)
                         </button>
 					<?php endif ?>
                     <div id="aixplain-bss-response">
                     </div>
                 </li>
+	            <?php if ( $postsHasApiError > 0 ): ?>
+                <li>
+                        <hr>
+                        <p>Click below to reset posts that have an api error to be able to synthesize them again</p>
+                        <button id="aixplain-bss-reset-posts-has-api-errors-action">Reset</button>
+                       <i>p.s. you can always force synthesize any post from "All Posts" listing </i>
+                </li>
+	            <?php endif ?>
             </ul>
         </div>
     </div>
@@ -113,5 +135,6 @@ if ( isset( $_REQUEST['aixplain_bss_api_key'] ) ) {
 	if ( isset( $_REQUEST['aixplain_bss_api_key'] ) ) {
 		echo '<br/><div class="updated saved-message">Saved Successfully</div><script>setTimeout(\'jQuery(".saved-message").fadeOut()\',4000)</script>';
 	}
+
 	?>
 </div>

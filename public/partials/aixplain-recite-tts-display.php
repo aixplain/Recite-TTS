@@ -8,8 +8,8 @@
  * @link       https://aixplain.com/
  * @since      1.0.0
  *
- * @package    Aixplain_Blog_Speech_Synthesis
- * @subpackage Aixplain_Blog_Speech_Synthesis/public/partials
+ * @package    AiXplain_Recite_TTS
+ * @subpackage    AiXplain_Recite_TTS/public/partials
  */
 ?>
 

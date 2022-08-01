@@ -6,8 +6,8 @@
  * @link       https://aixplain.com/
  * @since      1.0.0
  *
- * @package    Aixplain_Blog_Speech_Synthesis
- * @subpackage Aixplain_Blog_Speech_Synthesis/includes
+ * @package    AiXplain_Recite_TTS
+ * @subpackage    AiXplain_Recite_TTS/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    Aixplain_Blog_Speech_Synthesis
- * @subpackage Aixplain_Blog_Speech_Synthesis/includes
+ * @package    AiXplain_Recite_TTS
+ * @subpackage    AiXplain_Recite_TTS/includes
  * @author     aiXplain <anas.bakro@aixplain.com>
  */
-class Aixplain_Blog_Speech_Synthesis_Activator {
+class AiXplain_Recite_TTS_Activator {
 
 	/**
 	 * Short Description. (use period)
@@ -30,16 +30,17 @@ class Aixplain_Blog_Speech_Synthesis_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
-		add_option('aixplain_bss_api_key','');
-		add_option('aixplain_bss_api_url', 'https://models.aixplain.com/api/v1/execute');
-		add_option('aixplain_bss_placement', 'none');
+		add_option( AiXplain_Recite_TTS_Core::STOP_FLAG, false ,null,false);
+		add_option('aixplain_bss_api_key','',null,false);
+		add_option('aixplain_bss_api_url', 'https://models.aixplain.com/api/v1/execute',null,false);
+		add_option('aixplain_bss_placement', 'none',null,false);
 		add_option('aixplain_bss_render', '
 <div class="aixplain-bss-audio">
 	<audio controls>
 	  <source src="$AUDIO_URL$">
 	  Your browser does not support the audio tag.
 	</audio>
-</div>');
+</div>',null,false);
 
 	}
 
