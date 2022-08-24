@@ -10,12 +10,12 @@
  *
  * @link              https://aixplain.com/
  * @since             1.0.2
- * @package           AiXplain_Blog_Speech_Synthesis
+ * @package           AiXplain_Recite_TTS
  *
  * @wordpress-plugin
  * Plugin Name:       Recite TTS
  * Plugin URI:        https://aixplain.com/
- * Description:       Add spoken word audio to any blog with a single API. This open source WordPress plugin leverages aiXplain’s pipeline designer to digitize blog posts into any user customizable language, and voice selection. Membership is free, and includes a 20 credit signup bonus to explore all platform options.
+ * Description:       Add spoken word audio to any blog with a single API. This open source WordPress plugin leverages aiXplain’s pipeline designer to digitize blog posts into any user customizable language, and voice selection. Membership is free, and includes credit signup bonus to explore all platform options.
  * Version:           1.0.2
  * Author:            aiXplain
  * Author URI:        https://aixplain.com/
