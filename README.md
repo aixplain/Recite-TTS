@@ -17,4 +17,3 @@ Add spoken word audio to any blog with a single API. This open source WordPress 
 6. You can run a background job to process all posts by clicking `process X Post(s)` or select the posts you want to process individually 
 
 
-##FAQ
